@@ -1,0 +1,696 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <title>TimeSliceStudio 技术支持 / Support</title>
+  <meta name="description" content="TimeSliceStudio technical support page in Simplified Chinese, Traditional Chinese, and English.">
+  <style>
+    :root {
+      --bg: #05090f;
+      --bg-soft: #09111b;
+      --panel: rgba(13, 25, 38, 0.78);
+      --panel-strong: rgba(18, 35, 51, 0.92);
+      --line: rgba(140, 180, 210, 0.18);
+      --text: #eef6ff;
+      --muted: #9fb0c3;
+      --subtle: #6f8297;
+      --accent: #36d5ff;
+      --accent-2: #8ee8ff;
+      --success: #55e6a5;
+      --warning: #ffd166;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.42);
+      --radius-lg: 28px;
+      --radius-md: 20px;
+      --radius-sm: 14px;
+      --max: 1180px;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 18% 8%, rgba(54, 213, 255, 0.20), transparent 30%),
+        radial-gradient(circle at 86% 18%, rgba(77, 123, 255, 0.16), transparent 26%),
+        linear-gradient(180deg, #05090f 0%, #06101a 46%, #03070d 100%);
+      min-height: 100vh;
+      line-height: 1.65;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .site-shell { min-height: 100vh; overflow: hidden; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(5, 9, 15, 0.76);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .topbar-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 260px;
+    }
+
+    .mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 13px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.16), rgba(255,255,255,0.02)),
+        radial-gradient(circle at 50% 10%, rgba(54,213,255,0.45), transparent 36%),
+        #101923;
+      border: 1px solid rgba(255,255,255,0.16);
+      display: grid;
+      place-items: center;
+      box-shadow: inset 0 0 18px rgba(54,213,255,0.13), 0 10px 30px rgba(0,0,0,0.28);
+    }
+
+    .mark svg { width: 27px; height: 27px; }
+
+    .brand-title { font-weight: 740; letter-spacing: -0.03em; font-size: 18px; line-height: 1.1; }
+    .brand-sub { color: var(--muted); font-size: 12px; margin-top: 2px; }
+
+    nav {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    nav a { padding: 8px 4px; white-space: nowrap; }
+    nav a:hover { color: var(--accent-2); }
+
+    .language-switcher {
+      display: flex;
+      gap: 6px;
+      padding: 5px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.04);
+      border-radius: 999px;
+      flex: 0 0 auto;
+    }
+
+    .language-switcher button {
+      border: 0;
+      color: var(--muted);
+      background: transparent;
+      border-radius: 999px;
+      padding: 8px 11px;
+      cursor: pointer;
+      font: inherit;
+      font-size: 13px;
+    }
+
+    .language-switcher button[aria-pressed="true"] {
+      background: rgba(54, 213, 255, 0.16);
+      color: var(--accent-2);
+      box-shadow: inset 0 0 0 1px rgba(54, 213, 255, 0.25);
+    }
+
+    main { max-width: var(--max); margin: 0 auto; padding: 76px 24px 64px; }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(360px, 0.84fr);
+      gap: 48px;
+      align-items: center;
+      min-height: 520px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(44px, 7vw, 82px);
+      line-height: 0.94;
+      letter-spacing: -0.07em;
+      font-weight: 820;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, #f8fbff, #9ee9ff 45%, #35d6ff 72%, #f8fbff 100%);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      margin: 26px 0 0;
+      max-width: 680px;
+      color: var(--muted);
+      font-size: clamp(17px, 2vw, 21px);
+    }
+
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border-radius: 14px;
+      padding: 13px 18px;
+      font-weight: 700;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+    }
+
+    .button.primary {
+      color: #02121d;
+      background: linear-gradient(135deg, var(--accent), #83edff);
+      box-shadow: 0 18px 48px rgba(54, 213, 255, 0.24);
+      border-color: transparent;
+    }
+
+    .support-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(180deg, rgba(15, 29, 44, 0.86), rgba(8, 17, 28, 0.72));
+      box-shadow: var(--shadow);
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .support-card::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      background: radial-gradient(circle at 50% 22%, rgba(54, 213, 255, 0.18), transparent 42%);
+      pointer-events: none;
+    }
+
+    .timeline-visual {
+      position: relative;
+      z-index: 1;
+      height: 280px;
+      display: flex;
+      align-items: center;
+    }
+
+    .filmstrip {
+      width: 100%;
+      height: 124px;
+      border: 1px solid rgba(142, 232, 255, 0.18);
+      background:
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.06) 0 8px, transparent 8px 22px),
+        linear-gradient(90deg, rgba(20,33,47,0.4), rgba(75,138,173,0.35), rgba(12,23,35,0.55));
+      border-radius: 18px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 3px;
+      padding: 12px;
+    }
+
+    .slice {
+      border-radius: 8px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(54,213,255,0.06)), var(--c);
+      min-height: 100%;
+      opacity: 0.84;
+    }
+
+    .playhead {
+      position: absolute;
+      left: 48%;
+      top: 28px;
+      bottom: 28px;
+      width: 3px;
+      background: linear-gradient(180deg, transparent, var(--accent), var(--accent), transparent);
+      box-shadow: 0 0 24px rgba(54,213,255,0.9);
+    }
+
+    .playhead::before, .playhead::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent-2);
+      box-shadow: 0 0 20px rgba(54,213,255,0.85);
+    }
+    .playhead::before { top: 0; }
+    .playhead::after { bottom: 0; }
+
+    .quick-status {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .status-pill {
+      padding: 12px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .status-pill strong { display: block; font-size: 13px; color: var(--text); }
+    .status-pill span { color: var(--muted); font-size: 12px; }
+
+    .section { padding: 34px 0; }
+
+    .section-header { display: flex; justify-content: space-between; gap: 24px; align-items: end; margin-bottom: 20px; }
+    .section h2 { margin: 0; font-size: clamp(26px, 4vw, 42px); line-height: 1.08; letter-spacing: -0.045em; }
+    .section-lead { color: var(--muted); max-width: 620px; margin: 10px 0 0; }
+
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .grid.two { grid-template-columns: repeat(2, 1fr); }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: var(--panel);
+      padding: 22px;
+      min-height: 178px;
+      box-shadow: 0 18px 60px rgba(0, 0, 0, 0.18);
+    }
+
+    .card h3 { margin: 0 0 10px; font-size: 19px; letter-spacing: -0.025em; }
+    .card p, .card li { color: var(--muted); font-size: 15px; }
+    .card ul, .card ol { padding-left: 20px; margin: 10px 0 0; }
+    .card li + li { margin-top: 6px; }
+
+    .icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 13px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 18px;
+      border: 1px solid rgba(54,213,255,0.28);
+      color: var(--accent);
+      background: rgba(54,213,255,0.08);
+    }
+
+    details {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      background: rgba(255,255,255,0.035);
+      padding: 16px 18px;
+    }
+    details + details { margin-top: 12px; }
+    summary { cursor: pointer; font-weight: 720; }
+    details p { color: var(--muted); margin: 10px 0 0; }
+
+    .callout {
+      border: 1px solid rgba(85,230,165,0.28);
+      background: linear-gradient(135deg, rgba(85,230,165,0.10), rgba(54,213,255,0.06));
+      border-radius: var(--radius-md);
+      padding: 22px;
+    }
+
+    .contact-panel {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 24px;
+      border: 1px solid rgba(54,213,255,0.26);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      background: linear-gradient(135deg, rgba(54,213,255,0.12), rgba(18,35,51,0.82));
+    }
+
+    .footer {
+      border-top: 1px solid var(--line);
+      margin-top: 38px;
+      padding: 30px 24px 42px;
+      color: var(--subtle);
+    }
+    .footer-inner { max-width: var(--max); margin: 0 auto; display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+
+    [data-i18n-block] { display: none; }
+    [data-i18n-block].active { display: contents; }
+
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: 12px;
+      background: var(--accent);
+      color: #00111a;
+      padding: 10px 12px;
+      border-radius: 10px;
+      z-index: 100;
+      font-weight: 700;
+    }
+    .skip-link:focus { left: 12px; }
+
+    @media (max-width: 920px) {
+      .topbar-inner { flex-wrap: wrap; }
+      .brand { min-width: auto; flex: 1; }
+      nav { order: 3; width: 100%; overflow-x: auto; justify-content: flex-start; padding-bottom: 2px; }
+      .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 24px; }
+      .support-card { order: -1; }
+      .grid, .grid.two { grid-template-columns: 1fr; }
+      .contact-panel { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 560px) {
+      main { padding: 42px 16px 48px; }
+      .topbar-inner { padding: 14px 16px; }
+      .language-switcher { width: 100%; justify-content: space-between; }
+      .language-switcher button { flex: 1; padding-inline: 8px; }
+      nav {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+        overflow: visible;
+        padding-bottom: 0;
+      }
+      nav a {
+        padding: 9px 10px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: rgba(255,255,255,0.035);
+        text-align: center;
+      }
+      nav a:last-child { grid-column: 1 / -1; }
+      .hero-actions { flex-direction: column; }
+      .button { width: 100%; justify-content: center; }
+      .quick-status { grid-template-columns: 1fr; }
+      .timeline-visual { height: 220px; }
+      .section { padding: 26px 0; }
+      .card, .contact-panel { padding: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="site-shell">
+    <header class="topbar">
+      <div class="topbar-inner">
+        <a class="brand" href="#top" aria-label="TimeSliceStudio support home">
+          <span class="mark" aria-hidden="true">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="8" y="13" width="48" height="38" rx="8" stroke="currentColor" stroke-width="3" opacity=".85"/>
+              <path d="M17 44V26M25 44V20M33 44V30M41 44V17M49 44V25" stroke="#36d5ff" stroke-width="4" stroke-linecap="round"/>
+              <path d="M12 33h40" stroke="white" stroke-opacity=".38" stroke-width="2"/>
+            </svg>
+          </span>
+          <span>
+            <span class="brand-title">TimeSliceStudio</span>
+            <span class="brand-sub" data-i18n="brandSub"></span>
+          </span>
+        </a>
+        <nav aria-label="Support navigation">
+          <a href="#start" data-i18n="navStart"></a>
+          <a href="#workflow" data-i18n="navWorkflow"></a>
+          <a href="#troubleshooting" data-i18n="navTrouble"></a>
+          <a href="#privacy" data-i18n="navPrivacy"></a>
+          <a href="#contact" data-i18n="navContact"></a>
+        </nav>
+        <div class="language-switcher" aria-label="Language">
+          <button type="button" data-lang="zh-Hans" aria-pressed="true">简体</button>
+          <button type="button" data-lang="zh-Hant" aria-pressed="false">繁體</button>
+          <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+      </div>
+    </header>
+
+    <main id="content">
+      <section class="hero" id="top">
+        <div>
+          <h1><span data-i18n="heroTitleA"></span><br><span class="gradient-text">TimeSliceStudio</span></h1>
+          <p data-i18n="heroText"></p>
+          <div class="hero-actions">
+            <a class="button primary" href="#start" data-i18n="heroPrimary"></a>
+            <a class="button" href="#troubleshooting" data-i18n="heroSecondary"></a>
+          </div>
+        </div>
+        <aside class="support-card" aria-label="Timeline illustration">
+          <div class="timeline-visual">
+            <div class="filmstrip" aria-hidden="true">
+              <div class="slice" style="--c:#1d2a3a"></div>
+              <div class="slice" style="--c:#20405c"></div>
+              <div class="slice" style="--c:#315d76"></div>
+              <div class="slice" style="--c:#596171"></div>
+              <div class="slice" style="--c:#6d7b86"></div>
+              <div class="slice" style="--c:#244058"></div>
+              <div class="slice" style="--c:#152434"></div>
+            </div>
+            <div class="playhead" aria-hidden="true"></div>
+          </div>
+          <div class="quick-status">
+            <div class="status-pill"><strong data-i18n="statusPlatformTitle"></strong><span data-i18n="statusPlatformText"></span></div>
+            <div class="status-pill"><strong data-i18n="statusModelTitle"></strong><span data-i18n="statusModelText"></span></div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="section" id="start">
+        <div class="section-header">
+          <div>
+            <h2 data-i18n="startTitle"></h2>
+            <p class="section-lead" data-i18n="startLead"></p>
+          </div>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <div class="icon" aria-hidden="true">01</div>
+            <h3 data-i18n="startCard1Title"></h3>
+            <p data-i18n="startCard1Text"></p>
+          </article>
+          <article class="card">
+            <div class="icon" aria-hidden="true">02</div>
+            <h3 data-i18n="startCard2Title"></h3>
+            <p data-i18n="startCard2Text"></p>
+          </article>
+          <article class="card">
+            <div class="icon" aria-hidden="true">03</div>
+            <h3 data-i18n="startCard3Title"></h3>
+            <p data-i18n="startCard3Text"></p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="workflow">
+        <div class="section-header">
+          <div>
+            <h2 data-i18n="workflowTitle"></h2>
+            <p class="section-lead" data-i18n="workflowLead"></p>
+          </div>
+        </div>
+        <div class="grid two">
+          <article class="card">
+            <h3 data-i18n="workflowStillTitle"></h3>
+            <ul>
+              <li data-i18n="workflowStill1"></li>
+              <li data-i18n="workflowStill2"></li>
+              <li data-i18n="workflowStill3"></li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3 data-i18n="workflowVideoTitle"></h3>
+            <ul>
+              <li data-i18n="workflowVideo1"></li>
+              <li data-i18n="workflowVideo2"></li>
+              <li data-i18n="workflowVideo3"></li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3 data-i18n="workflowAdvancedTitle"></h3>
+            <ul>
+              <li data-i18n="workflowAdvanced1"></li>
+              <li data-i18n="workflowAdvanced2"></li>
+              <li data-i18n="workflowAdvanced3"></li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3 data-i18n="workflowExportTitle"></h3>
+            <ul>
+              <li data-i18n="workflowExport1"></li>
+              <li data-i18n="workflowExport2"></li>
+              <li data-i18n="workflowExport3"></li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="troubleshooting">
+        <div class="section-header">
+          <div>
+            <h2 data-i18n="troubleTitle"></h2>
+            <p class="section-lead" data-i18n="troubleLead"></p>
+          </div>
+        </div>
+        <details open><summary data-i18n="faq1Q"></summary><p data-i18n="faq1A"></p></details>
+        <details><summary data-i18n="faq2Q"></summary><p data-i18n="faq2A"></p></details>
+        <details><summary data-i18n="faq3Q"></summary><p data-i18n="faq3A"></p></details>
+        <details><summary data-i18n="faq4Q"></summary><p data-i18n="faq4A"></p></details>
+        <details><summary data-i18n="faq5Q"></summary><p data-i18n="faq5A"></p></details>
+      </section>
+
+      <section class="section" id="privacy">
+        <div class="grid two">
+          <article class="callout">
+            <h2 data-i18n="privacyTitle"></h2>
+            <p data-i18n="privacyText"></p>
+          </article>
+          <article class="card">
+            <h3 data-i18n="storeTitle"></h3>
+            <p data-i18n="storeText"></p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="contact">
+        <div class="contact-panel">
+          <div>
+            <h2 data-i18n="contactTitle"></h2>
+            <p class="section-lead" data-i18n="contactText"></p>
+          </div>
+          <a class="button primary" href="mailto:jacobwang507@gmail.com?subject=TimeSliceStudio%20Support" data-i18n="contactButton"></a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <div>© <span id="year"></span> TimeSliceStudio</div>
+        <div data-i18n="footerText"></div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const copy = {
+      "zh-Hans": {
+        brandSub: "macOS 时间切片创作工具",
+        navStart: "开始使用", navWorkflow: "工作流程", navTrouble: "故障排查", navPrivacy: "隐私与安全", navContact: "联系支持",
+        heroTitleA: "技术支持",
+        heroText: "这里提供 TimeSliceStudio 的入门说明、常见问题、隐私安全信息与联系渠道。应用在本地处理图片和视频，不上传媒体，不包含账号、分析、跟踪、内购或订阅。",
+        heroPrimary: "查看入门指南", heroSecondary: "排查常见问题",
+        statusPlatformTitle: "平台", statusPlatformText: "macOS 14+，Apple Silicon 优先",
+        statusModelTitle: "商业模式", statusModelText: "TestFlight 免费测试，App Store 付费下载",
+        startTitle: "开始使用", startLead: "完成一个时间切片项目通常只需要三步。建议使用固定机位素材，画面越稳定，成片越干净。",
+        startCard1Title: "导入素材", startCard1Text: "选择图片序列，或导入 MOV/MP4 视频。图片序列适合延时摄影和同机位照片，视频适合快速生成抽帧切片。",
+        startCard2Title: "生成预览", startCard2Text: "选择切片几何、方向、切片数量、羽化与输出尺寸。时间线会显示真实来源缩略图，便于确认每个时间点。",
+        startCard3Title: "导出作品", startCard3Text: "静态作品可导出 PNG、JPEG 或 TIFF；动态工作流可导出 MOV。所有导出都在本机完成。",
+        workflowTitle: "支持的工作流程", workflowLead: "TimeSliceStudio 面向摄影师、延时摄影作者和实验影像创作者，覆盖静态与动态时间切片。",
+        workflowStillTitle: "图片序列切片", workflowStill1: "支持 JPEG、PNG、TIFF 等系统可解码图片。", workflowStill2: "适合城市日夜、月升、季节、潮汐、施工和花朵变化。", workflowStill3: "可使用竖向、横向、斜向、径向、同心环、波浪和网格几何。",
+        workflowVideoTitle: "视频抽帧与扫描", workflowVideo1: "支持系统可解码的 MOV/MP4 视频。", workflowVideo2: "可从视频采样来源帧并生成静态时间切片。", workflowVideo3: "动态 Slit-scan 使用连续视频采样与本地渲染。",
+        workflowAdvancedTitle: "创作控制", workflowAdvanced1: "最高 500 条空间切片轨道。", workflowAdvanced2: "支持主体蒙版、时间方向、中心点和羽化控制。", workflowAdvanced3: "色彩与稳定控制用于整理真实拍摄素材。",
+        workflowExportTitle: "导出", workflowExport1: "静态导出：PNG、JPEG、TIFF。", workflowExport2: "动态导出：MOV。", workflowExport3: "项目文件使用 .timesliceproject 保存，可重新打开继续编辑。",
+        troubleTitle: "常见问题", troubleLead: "遇到问题时，先检查素材格式、系统版本、文件权限和输出位置。",
+        faq1Q: "视频无法导入或无法预览怎么办？", faq1A: "请确认视频能被 macOS 原生播放。若 MOV/MP4 无法解码，建议转为常见 H.264 或 HEVC 编码后重试。",
+        faq2Q: "图片序列顺序不正确怎么办？", faq2A: "请使用连续且可排序的文件名，例如 scene-0001.jpg、scene-0002.jpg。导入前避免混入无关图片。",
+        faq3Q: "项目重新打开后找不到素材怎么办？", faq3A: "TimeSliceStudio 使用安全作用域文件访问引用外部素材。如果移动或重命名了源文件，请在应用中重新链接素材。",
+        faq4Q: "导出很慢或内存占用较高怎么办？", faq4A: "降低输出尺寸、减少切片数量，或先使用较小代理预览确认效果。高分辨率 TIFF、长视频和大量切片会增加处理时间。",
+        faq5Q: "TestFlight 和 App Store 版本有什么区别？", faq5A: "TestFlight 用于免费测试发布候选版本；App Store 版本为付费下载。当前版本没有内购、订阅或账号系统。",
+        privacyTitle: "隐私与安全", privacyText: "应用不创建账号，不上传媒体，不使用分析、广告 SDK 或跟踪。图片、视频、项目和导出文件都由用户在本机选择和保存。",
+        storeTitle: "App Store 与 TestFlight", storeText: "TestFlight 构建用于免费测试。App Store 首发版本采用付费下载模式，不包含内购或订阅。后续版本如增加在线服务或购买项目，将在发布前更新说明。",
+        contactTitle: "联系支持", contactText: "反馈问题时，请尽量说明 macOS 版本、TimeSliceStudio 版本、素材类型、操作步骤和错误提示。不要主动发送敏感原片，除非你确认这些素材可用于排查。",
+        contactButton: "发送邮件", footerText: "本页面为完全静态支持页面，可作为 App Store Support URL。"
+      },
+      "zh-Hant": {
+        brandSub: "macOS 時間切片創作工具",
+        navStart: "開始使用", navWorkflow: "工作流程", navTrouble: "故障排查", navPrivacy: "隱私與安全", navContact: "聯絡支援",
+        heroTitleA: "技術支援",
+        heroText: "這裡提供 TimeSliceStudio 的入門說明、常見問題、隱私安全資訊與聯絡管道。App 會在本機處理圖片與影片，不上傳媒體，不包含帳號、分析、追蹤、App 內購買或訂閱。",
+        heroPrimary: "查看入門指南", heroSecondary: "排查常見問題",
+        statusPlatformTitle: "平台", statusPlatformText: "macOS 14+，Apple Silicon 優先",
+        statusModelTitle: "商業模式", statusModelText: "TestFlight 免費測試，App Store 付費下載",
+        startTitle: "開始使用", startLead: "完成一個時間切片專案通常只需要三步。建議使用固定機位素材，畫面越穩定，成品越乾淨。",
+        startCard1Title: "匯入素材", startCard1Text: "選擇圖片序列，或匯入 MOV/MP4 影片。圖片序列適合縮時攝影和同機位照片，影片適合快速產生抽幀切片。",
+        startCard2Title: "產生預覽", startCard2Text: "選擇切片幾何、方向、切片數量、羽化與輸出尺寸。時間軸會顯示真實來源縮圖，方便確認每個時間點。",
+        startCard3Title: "匯出作品", startCard3Text: "靜態作品可匯出 PNG、JPEG 或 TIFF；動態工作流程可匯出 MOV。所有匯出都在本機完成。",
+        workflowTitle: "支援的工作流程", workflowLead: "TimeSliceStudio 面向攝影師、縮時攝影作者和實驗影像創作者，覆蓋靜態與動態時間切片。",
+        workflowStillTitle: "圖片序列切片", workflowStill1: "支援 JPEG、PNG、TIFF 等系統可解碼圖片。", workflowStill2: "適合城市日夜、月升、季節、潮汐、施工和花朵變化。", workflowStill3: "可使用直向、橫向、斜向、徑向、同心環、波浪和網格幾何。",
+        workflowVideoTitle: "影片抽幀與掃描", workflowVideo1: "支援系統可解碼的 MOV/MP4 影片。", workflowVideo2: "可從影片取樣來源幀並產生靜態時間切片。", workflowVideo3: "動態 Slit-scan 使用連續影片取樣與本機渲染。",
+        workflowAdvancedTitle: "創作控制", workflowAdvanced1: "最高 500 條空間切片軌道。", workflowAdvanced2: "支援主體遮罩、時間方向、中心點和羽化控制。", workflowAdvanced3: "色彩與穩定控制用於整理真實拍攝素材。",
+        workflowExportTitle: "匯出", workflowExport1: "靜態匯出：PNG、JPEG、TIFF。", workflowExport2: "動態匯出：MOV。", workflowExport3: "專案檔使用 .timesliceproject 儲存，可重新開啟繼續編輯。",
+        troubleTitle: "常見問題", troubleLead: "遇到問題時，先檢查素材格式、系統版本、檔案權限和輸出位置。",
+        faq1Q: "影片無法匯入或無法預覽怎麼辦？", faq1A: "請確認影片能被 macOS 原生播放。若 MOV/MP4 無法解碼，建議轉為常見 H.264 或 HEVC 編碼後重試。",
+        faq2Q: "圖片序列順序不正確怎麼辦？", faq2A: "請使用連續且可排序的檔名，例如 scene-0001.jpg、scene-0002.jpg。匯入前避免混入無關圖片。",
+        faq3Q: "專案重新開啟後找不到素材怎麼辦？", faq3A: "TimeSliceStudio 使用安全作用域檔案存取引用外部素材。如果移動或重新命名了來源檔案，請在 App 中重新連結素材。",
+        faq4Q: "匯出很慢或記憶體占用較高怎麼辦？", faq4A: "降低輸出尺寸、減少切片數量，或先使用較小代理預覽確認效果。高解析 TIFF、長影片和大量切片會增加處理時間。",
+        faq5Q: "TestFlight 和 App Store 版本有什麼不同？", faq5A: "TestFlight 用於免費測試發布候選版本；App Store 版本為付費下載。目前版本沒有 App 內購買、訂閱或帳號系統。",
+        privacyTitle: "隱私與安全", privacyText: "App 不建立帳號，不上傳媒體，不使用分析、廣告 SDK 或追蹤。圖片、影片、專案和匯出檔案都由使用者在本機選擇和儲存。",
+        storeTitle: "App Store 與 TestFlight", storeText: "TestFlight 建置用於免費測試。App Store 首發版本採用付費下載模式，不包含 App 內購買或訂閱。後續版本如增加線上服務或購買項目，將在發布前更新說明。",
+        contactTitle: "聯絡支援", contactText: "回報問題時，請盡量說明 macOS 版本、TimeSliceStudio 版本、素材類型、操作步驟和錯誤提示。不要主動寄送敏感原片，除非你確認這些素材可用於排查。",
+        contactButton: "寄送郵件", footerText: "本頁面為完全靜態支援頁面，可作為 App Store Support URL。"
+      },
+      en: {
+        brandSub: "macOS time-slice creation tool",
+        navStart: "Get started", navWorkflow: "Workflows", navTrouble: "Troubleshooting", navPrivacy: "Privacy & safety", navContact: "Contact",
+        heroTitleA: "Technical Support",
+        heroText: "Find getting-started guidance, workflow notes, troubleshooting help, privacy information, and support contact details for TimeSliceStudio. The app processes images and videos locally, with no accounts, analytics, tracking, in-app purchases, or subscriptions in the current release.",
+        heroPrimary: "Read the guide", heroSecondary: "Troubleshoot",
+        statusPlatformTitle: "Platform", statusPlatformText: "macOS 14+, optimized for Apple Silicon",
+        statusModelTitle: "Commercial model", statusModelText: "Free TestFlight testing, paid App Store download",
+        startTitle: "Get started", startLead: "A time-slice project usually takes three steps. Stable tripod footage or fixed-camera image sequences produce the cleanest results.",
+        startCard1Title: "Import media", startCard1Text: "Choose an image sequence or import a MOV/MP4 video. Image sequences work well for timelapse photography; video is useful for quick frame-sampled compositions.",
+        startCard2Title: "Generate a preview", startCard2Text: "Choose geometry, direction, slice count, feathering, and output size. The timeline shows real source thumbnails so you can inspect each time point.",
+        startCard3Title: "Export your work", startCard3Text: "Export still results as PNG, JPEG, or TIFF. Dynamic workflows can export MOV. All processing and exports happen locally on your Mac.",
+        workflowTitle: "Supported workflows", workflowLead: "TimeSliceStudio is built for photographers, timelapse creators, and experimental video artists working with static and dynamic time-slice imagery.",
+        workflowStillTitle: "Image sequence slicing", workflowStill1: "Supports system-decodable images such as JPEG, PNG, and TIFF.", workflowStill2: "Useful for day-to-night cityscapes, moonrise, seasons, tides, construction, and flowers.", workflowStill3: "Use vertical, horizontal, angled, radial, concentric, wave, and grid geometries.",
+        workflowVideoTitle: "Video sampling and scanning", workflowVideo1: "Supports system-decodable MOV/MP4 videos.", workflowVideo2: "Sample source frames from video and create static time-slice output.", workflowVideo3: "Dynamic Slit-scan uses continuous local video sampling and rendering.",
+        workflowAdvancedTitle: "Creative controls", workflowAdvanced1: "Up to 500 spatial slice tracks.", workflowAdvanced2: "Subject masks, time direction, center selection, and feather controls.", workflowAdvanced3: "Color and stability controls help prepare real-world capture material.",
+        workflowExportTitle: "Export", workflowExport1: "Still export: PNG, JPEG, TIFF.", workflowExport2: "Dynamic export: MOV.", workflowExport3: "Projects are saved as .timesliceproject documents and can be reopened for editing.",
+        troubleTitle: "Troubleshooting", troubleLead: "If something fails, first check the media format, macOS version, file permissions, and export location.",
+        faq1Q: "A video will not import or preview. What should I do?", faq1A: "Make sure the video plays natively on macOS. If a MOV/MP4 file cannot be decoded, convert it to a common H.264 or HEVC encode and try again.",
+        faq2Q: "My image sequence is in the wrong order. What should I do?", faq2A: "Use continuous sortable file names such as scene-0001.jpg and scene-0002.jpg. Remove unrelated files before importing.",
+        faq3Q: "A reopened project cannot find source media. What should I do?", faq3A: "TimeSliceStudio references external media using macOS security-scoped file access. If you moved or renamed source files, relink them inside the app.",
+        faq4Q: "Exports are slow or memory usage is high. What should I do?", faq4A: "Lower the output size, reduce slice count, or preview with smaller settings first. High-resolution TIFFs, long videos, and many slices take more processing time.",
+        faq5Q: "What is the difference between TestFlight and App Store builds?", faq5A: "TestFlight is for free beta testing of release candidates. The App Store version is a paid download. The current release has no in-app purchases, subscriptions, or account system.",
+        privacyTitle: "Privacy & safety", privacyText: "The app does not create accounts, upload media, use analytics, advertising SDKs, or tracking. Images, videos, project files, and exports are selected and saved locally by the user.",
+        storeTitle: "App Store & TestFlight", storeText: "TestFlight builds are used for free testing. The first App Store release is a paid download and does not include in-app purchases or subscriptions. Any future online services or purchase features should be documented before release.",
+        contactTitle: "Contact support", contactText: "When reporting an issue, include your macOS version, TimeSliceStudio version, media type, steps taken, and any error message. Do not send sensitive source media unless you have confirmed it is appropriate for troubleshooting.",
+        contactButton: "Email support", footerText: "This is a fully static support page suitable for an App Store Support URL."
+      }
+    };
+
+    const html = document.documentElement;
+    const buttons = Array.from(document.querySelectorAll('[data-lang]'));
+    const nodes = Array.from(document.querySelectorAll('[data-i18n]'));
+
+    function applyLanguage(lang) {
+      const selected = copy[lang] ? lang : 'zh-Hans';
+      html.lang = selected;
+      nodes.forEach(node => {
+        const key = node.getAttribute('data-i18n');
+        node.textContent = copy[selected][key] || copy['zh-Hans'][key] || '';
+      });
+      buttons.forEach(button => {
+        button.setAttribute('aria-pressed', String(button.dataset.lang === selected));
+      });
+      try { localStorage.setItem('timeslice-support-lang', selected); } catch (_) {}
+    }
+
+    buttons.forEach(button => button.addEventListener('click', () => applyLanguage(button.dataset.lang)));
+
+    const preferred = (() => {
+      try { return localStorage.getItem('timeslice-support-lang'); } catch (_) { return null; }
+    })() || (navigator.language && navigator.language.toLowerCase().startsWith('zh-tw') ? 'zh-Hant' : navigator.language && navigator.language.toLowerCase().startsWith('zh') ? 'zh-Hans' : 'en');
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+    applyLanguage(preferred);
+  </script>
+</body>
+</html>
